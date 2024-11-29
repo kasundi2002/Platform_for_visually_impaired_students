@@ -1,0 +1,148 @@
+/* Container for the admin page */
+.admin-container {
+  display: flex;
+  flex-direction: column; /* Stack the containers vertically */
+  align-items: center; /* Center the containers horizontally */
+  padding: 20px;
+}
+
+/* Floating container for adding/editing questions */
+.floating-container.add-question {
+  width: 500px; /* Fixed width for the form container */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #e9ecef; /* Slightly darker background color */
+  margin-bottom: 20px; /* Space below the add-question container */
+  max-height: 500px; /* Restrict height to prevent overflow */
+  overflow-y: auto; /* Add scrollbar if content exceeds max-height */
+}
+
+/* Floating container for managing questions */
+.floating-container.manage-questions {
+  width: 500px; /* Same width as the add-question container */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #e9ecef; /* Slightly darker background color */
+  overflow-y: auto; /* Enable scrolling if content exceeds container height */
+  max-height: 600px; /* Set a max-height for scrolling */
+}
+
+/* Header styles */
+h2 {
+  margin-bottom: 10px;
+  font-size: 24px; /* Adjusted font size */
+  line-height: 1.4;
+}
+
+/* Input field styles */
+input[type="text"] {
+  width: calc(100% - 16px); /* Adjust for padding and borders */
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: #fff; /* Ensure inputs are clear and readable */
+}
+
+/* Button styles */
+button {
+  margin: 10px; /* Space around buttons */
+  padding: 10px 20px;
+  border: none;
+  background-color: #333; /* Dark background color */
+  color: #fff; /* White text color */
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #000; /* Even darker shade for hover effect */
+}
+
+/* Button focus styles */
+button:focus {
+  outline: 2px solid #fff; /* White outline for focus */
+}
+
+/* Numbered list for questions */
+.question-list {
+  list-style: decimal; /* Numbered list style */
+  padding-left: 20px; /* Indentation for the list */
+}
+
+.question-item {
+  margin-bottom: 20px; /* Space between questions */
+}
+
+/* Lettered list for answer options */
+.answer-list {
+  list-style: none; /* Remove default list style */
+  padding-left: 50px; /* Add indentation to align with question list */
+  margin: 10px 0; /* Margin between answer sets */
+  counter-reset: answer-list; /* Reset counter for lettered labels */
+}
+
+.answer-item {
+  text-align: start;
+  position: relative; /* For positioning the label */
+  padding-left: 25px; /* Space for the lettered label */
+  margin-bottom: 5px; /* Space between answers */
+}
+
+.answer-item::before {
+  content: counter(answer-list, lower-alpha) ") "; /* Lettered label */
+  position: absolute; /* Position the label */
+  left: 0; /* Align to the left */
+  font-weight: bold; /* Bold label for better visibility */
+  color: #333; /* Dark color for the label */
+}
+
+.answer-list li {
+  counter-increment: answer-list; /* Increment the counter for each answer */
+}
+
+/* Input focus styles */
+input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Media query for light mode to override conflicting styles */
+@media (prefers-color-scheme: light) {
+  .admin-container,
+  .floating-container {
+    background-color: #ffffff; /* Light background */
+  }
+
+  .floating-container.add-question,
+  .floating-container.manage-questions {
+    background-color: #e9ecef; /* Adjust container color */
+  }
+
+  button {
+    background-color: #333; /* Dark button background */
+    color: #fff; /* White text color */
+  }
+}
+
+/* Ensure styles for dark mode are also correct */
+@media (prefers-color-scheme: dark) {
+  .admin-container,
+  .floating-container {
+    background-color: #242424; /* Dark background */
+  }
+
+  .floating-container.add-question,
+  .floating-container.manage-questions {
+    background-color: #343a40; /* Adjust container color */
+  }
+
+  button {
+    background-color: #1a1a1a; /* Dark button background */
+    color: #fff; /* White text color */
+  }
+}

@@ -1,0 +1,22 @@
+.tutorials-page {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tutorial-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.tutorial-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.tutorial-item h3 {
+  margin-top: 0;
+}
